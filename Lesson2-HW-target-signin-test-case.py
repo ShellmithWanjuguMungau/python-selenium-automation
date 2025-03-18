@@ -28,9 +28,10 @@ sleep(10)
 
 #4. Verify SignIn page opened:
 
-#“Sign into your Target account” text is shown,
+#“Signinto your Target account” text is shown,
 actual_text=driver.find_element(By.XPATH,"//span[text()='Sign into your Target account']").text
 expected_text='Sign into your Target account'
+#$x("//h1[contains(@class, 'styles_ndsHeading__HcGpD')]") // use this since the language can change
 
 assert actual_text in expected_text, f'Error. {actual_text} does not match the {expected_text}'
 

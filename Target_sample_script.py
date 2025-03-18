@@ -21,28 +21,35 @@ driver.find_element(By.XPATH,"//button[@aria-label='newsletter_popup_close-cta']
 
 # #find  the search bar element by ID
 driver.find_element(By.ID,'fi-q').send_keys('books')
-
-# #find the search button element by XPATH
-# driver.find_element(By.XPATH, "//button[@class='btn _prim _md -mls -fsh0']").click()
-# sleep(5)
-#confirm the number of products found
-#driver.find_element(By.XPATH, "//p[contains(text(), '270671 products found')]")
-
-driver.find_element(By.XPATH, "//a[@href='/phones-tablets/']").click()
 sleep(3)
+
+#find the search button element by XPATH
+driver.find_element(By.XPATH, "//button[@class='btn _prim _md -mls -fsh0']").click()
+sleep(5)
+
+#verification
+#confirm the number of products found
+Actual_text=driver.find_element(By.XPATH, "//p[contains(text(),'products found')]").text
+Expected_text='254123 products found'
+print(Actual_text)
+sleep(3)
+
+assert Expected_text in Actual_text ,f'Error. Text:{Expected_text} not in {Actual_text}'
+print('Test passed 🤩')
+# driver.find_element(By.XPATH, "//a[@href='/phones-tablets/']").click()
+# sleep(3)
 
 #verification
 # driver.find_element(By.XPATH, '//a[text()="Phones & Tablets" and @class="cbs"]')
 # print('test case passed')
 
 #verification using an assertion
-actual_text=driver.find_element(By.XPATH, '//a[text()="Phones & Tablets" and @class="cbs"]').text
-# assert actual_text == 'Phones & Tablets'
-# print("Test passed")
-expected_text='Phoesmjg & Tabets' #made sure it fails
-assert expected_text in actual_text, f'Error. Text "{expected_text}" not found in {actual_text}'
-print('Test case passed')
-
+# actual_text=driver.find_element(By.XPATH, '//a[text()="Phones & Tablets" and @class="cbs"]').text
+#
+# expected_text='Phoesmjg & Tabets' #made sure it fails
+# assert expected_text in actual_text, f'Error. Text "{expected_text}" not found in {actual_text}'
+# print('Test case passed')
+#
 sleep(20)
 
 
