@@ -29,7 +29,7 @@ def verify_results(context):
     expected_text = '254123 products found'
     print(actual_text)
     sleep(3)
-    assert expected_text in actual_text, f'Error. Text:{expected_text} not in {actual_text}'
+    assert  actual_text in expected_text , f'Error. Text:{expected_text} not in {actual_text}'
     print('Test passed 🤩')
 
 
