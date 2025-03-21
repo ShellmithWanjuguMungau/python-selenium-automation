@@ -1,5 +1,5 @@
 # Created by USER at 18/03/2025
-Feature: Target empty cart feature
+Feature: Cart feature
 
   Scenario: users cart is empty
     Given open target main page
