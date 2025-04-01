@@ -13,7 +13,8 @@ def open_target_product(context, product_id):
 
 @then('Verify user can click through colors')
 def verify_user_colors(context):
-    actual_colors_imgs=context.driver.find_elements(*VARIANT_IMAGE)
+    #actual_colors_imgs=context.driver.find_elements(*VARIANT_IMAGE)
+    actual_colors_imgs=context.driver.wait.until(EC.visibility_of_all_elements_located (VARIANT_IMAGE))
     print(len(actual_colors_imgs))
     actual_color_list = []
     # sleep(4)
