@@ -12,7 +12,7 @@ ADD_TO_CART=(By.XPATH, "//button[text()='Add to cart']")
 ADD_TO_CART_SIDE_BTN=(By.CSS_SELECTOR,".styles_ndsBaseButton__W8Gl7.styles_mdGap__9J0yq.styles_fullWidth__3XX6f.styles_ndsButtonPrimary__tqtKH")
 #ADD_TO_CART_SIDE_BTN=("[class*='BaseModalDrawer'] [id*='addToCartButton']")
 VIEW_CART_AND_CHECKOUT=(By.CSS_SELECTOR, "[href='/cart']")
-SEARCH_RESULT_TEXT=(By.XPATH, "//div[@data-test='lp--resultsCount']")
+SEARCH_RESULT_TEXT=(By.XPATH, "//div[@data-test='lp-resultsCount']//span[contains(@class, 'h-text-bs')]")
 SIDE_NAV_PRODUCT_NAME=(By.CSS_SELECTOR,"[class*='ModalDrawer'] [class*='styles_fontSize4__FN7fp']")
 SPONSORED_TEXT=(By.CSS_SELECTOR,"[data-test='sponsored-text']")
 
@@ -45,9 +45,13 @@ def close_side_navigation(context):
     context.driver.find_element(*VIEW_CART_AND_CHECKOUT).click()
 
 
-@then('Verify correct search results for {expected_text}')
-def verify_search_results(context, expected_text):
-    actual_text = (context.driver.wait.until(EC.visibility_of_element_located(SEARCH_RESULT_TEXT),message='element not available')).text
-    assert expected_text in actual_text, f'Error. Text {expected_text} not in {actual_text}'
+@then('Verify correct search results for {expected_result}')
+def verify_search_results(context, expected_result):
+    #actual_text = (context.driver.wait.until(EC.visibility_of_element_located(SEARCH_RESULT_TEXT),message='element not available')).text
+    # assert expected_text in actual_text, f'Error. Text {expected_text} not in {actual_text}'
+    sleep(10)
+    context.app.search_results_page.verify_search_results(expected_result)
+    sleep(10)
+
     # sleep(30)
 

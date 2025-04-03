@@ -6,17 +6,17 @@ Feature: Target search test cases
 #    Given Open target main page
 #    When Search for tea
 #    Then Verify correct search results for tea
-#
+
 
   Scenario Outline: User can search for a product on Target
     Given Open target main page
     When Search for <search_word>
     Then Verify correct search results for <expected_result>
     Examples:
-    |search_word  |expected_result  |
-    |tea          |tea              |
-    |shoe         |shoe             |
-    |iphone       |iphone           |
+    |search_word  |expected_result |
+    |cup          |for “cup”       |
+    |shoe         |for “shoe”      |
+    |tea          |for “tea”       |
 
 
 

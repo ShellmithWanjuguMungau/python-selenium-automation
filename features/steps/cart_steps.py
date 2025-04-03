@@ -10,9 +10,11 @@ def verify_your_cart_is_empty(context):
     actual_text=context.driver.wait.until(EC.visibility_of_element_located(EMPTY_TEXT_TITLE),message='text not found').text
     # actual_text=context.driver.find_element(By.CSS_SELECTOR,".styles_ndsHeading__HcGpD.styles_fontSize1__i0fbt").text
     print(actual_text)
-    expected_text='Your cart is empty'
-    assert actual_text in expected_text, f'Error. {actual_text} is not in {expected_text}'
-    # sleep(10)
+    # expected_text='Your cart is empty'
+    # assert actual_text in expected_text, f'Error. {actual_text} is not in {expected_text}'
+    # # sleep(10)
+
+    context.app.cart_page.verify_empty_cart()
 
 # @then('verify {expected_product} is  added to cart')
 # def verify_item_added(context,expected_product):

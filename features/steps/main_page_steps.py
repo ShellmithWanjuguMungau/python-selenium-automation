@@ -16,18 +16,21 @@ SIDE_NAV_SIGNIN_BTN=(By.CSS_SELECTOR, "[data-test='accountNav-signIn']")
 
 @given('open target main page')
 def open_target_main_page(context):
-    context.driver.get('https://www.target.com/')
+    # context.driver.get('https://www.target.com/')
+    context.app.main_page.open_main_page()
 
 
 @when ('click on Cart icon')
 def click_cart_icon(context):
-    context.driver.find_element(*CART_ICON).click()
+    # context.driver.find_element(*CART_ICON).click()
+    context.app.header.click_cart()
 
 
 @when('Search for {search_word}')
 def search_product(context, search_word):
-    context.driver.find_element(*SEARCH_FIELD).send_keys(search_word)
-    context.driver.find_element(*SEARCH_BTN).click()
+    # context.driver.find_element(*SEARCH_FIELD).send_keys(search_word)
+    # context.driver.find_element(*SEARCH_BTN).click()
+    context.app.header.search(search_word)
     sleep(5)
 
 @when('Click Sign In')
