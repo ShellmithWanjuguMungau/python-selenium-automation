@@ -30,3 +30,7 @@ def verify_cart_has_item(context):
     assert context.product_name == actual_name_in_cart, \
         f'Error. {context.product_name} not in {actual_name_in_cart}'
 
+@then('verify cart page opens')
+def verify_cart_page_opens(context):
+    context.app.cart_page.verify_cart_page_opens()
+

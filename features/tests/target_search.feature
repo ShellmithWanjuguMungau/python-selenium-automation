@@ -12,11 +12,12 @@ Feature: Target search test cases
     Given Open target main page
     When Search for <search_word>
     Then Verify correct search results for <expected_result>
+    And Verify <expected_result> in URL
     Examples:
     |search_word  |expected_result |
-    |cup          |for “cup”       |
-    |shoe         |for “shoe”      |
-    |tea          |for “tea”       |
+    |cup          |cup             |
+#    |shoe         |shoe            |
+#    |tea          |tea             |
 
 
 

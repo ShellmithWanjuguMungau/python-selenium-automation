@@ -5,4 +5,5 @@ Feature: Cart feature
     Given open target main page
     When click on Cart icon
     Then verify “Your cart is empty” message is shown
+    And verify cart page opens
 

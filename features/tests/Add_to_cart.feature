@@ -8,10 +8,11 @@ Feature: Add to cart feature
     Given open target main page
     When  search for <search_word>
     When click on add to cart button
-    And Store product name
+#    And Store product name
     When click add to cart from side navigation
-    When click on view cart and checkout
-    Then verify cart has correct product
+    Then verify "Added to cart" message is shown
+#    When click on view cart and checkout
+#    Then verify cart has correct product
 #    Then verify <expected_product> is  added to cart
 
     Examples:

@@ -5,4 +5,4 @@ Feature: Login & signin feature
     Given open target main page
     When Click Sign In
     When From right side navigation menu, click Sign In
-    Then Verify Sign In form opened
+    Then Verify "Sign in or create account" message is shown

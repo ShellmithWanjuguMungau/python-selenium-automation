@@ -33,14 +33,17 @@ def search_product(context, search_word):
     context.app.header.search(search_word)
     sleep(5)
 
+
 @when('Click Sign In')
 def click_sign_in(context):
-    context.driver.wait.until(EC.element_to_be_clickable(SIGN_IN)).click()
+    # context.driver.wait.until(EC.element_to_be_clickable(SIGN_IN)).click()
+    context.app.header.click_signin()
 
 
 @when ('From right side navigation menu, click Sign In')
 def sign_in_from_side_navigation(context):
-    context.driver.wait.until(EC.element_to_be_clickable(SIDE_NAV_SIGNIN_BTN) ,message='element not clickable').click()
+    # context.driver.wait.until(EC.element_to_be_clickable(SIDE_NAV_SIGNIN_BTN) ,message='element not clickable').click()
+    context.app.header.click_side_drawer_signin()
 
 
 @then('Verify {link_count} header links are shown')
