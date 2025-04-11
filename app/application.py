@@ -3,6 +3,7 @@ from Pages.cart_page import Cart
 from Pages.header import Header
 from Pages.login_page import LoginPage
 from Pages.main_page import MainPage
+from Pages.target_app_page import TargetAppPage
 from Pages.search_results_page import SearchResultsPage
 
 #umbrella class has links to all pages
@@ -14,4 +15,5 @@ class Application:
         self.header = Header(driver)
         self.login_page = LoginPage(driver)
         self.main_page= MainPage(driver)
+        self.target_app_page = TargetAppPage(driver)
         self.search_results_page = SearchResultsPage(driver)

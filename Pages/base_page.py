@@ -24,6 +24,23 @@ class Page: #will call selenium actions
     def input_text(self, text, *locator):
         self.driver.find_element(*locator).send_keys(text)
 
+    def current_window_handle(self):
+        return self.driver.current_window_handle
+
+    def switch_to_new_window(self):
+        current_handles = self.driver.window_handles
+        self.wait.until(EC.new_window_is_opened)
+        all_windows = self.driver.window_handles
+        print("All windows:", all_windows)
+        print("switching to new window:", all_windows[-1])
+        self.driver.switch_to.window(all_windows[-1])
+
+    def switch_to_window_by_id(self,window_id):
+        print("switching to new window:",window_id)
+        self.driver.switch_to.window(window_id)
+
+
+
     def wait_until_clickable(self, *locator):
         self.wait.until(
             EC.element_to_be_clickable(locator), message=f'Element not clickable by {locator}')
@@ -63,4 +80,5 @@ class Page: #will call selenium actions
         # assert expected_partial_url in current_url, f'Expected url {expected_partial_url} not found in {current_url}'
         self.wait.until(EC.url_contains(expected_partial_url), message=f'URL does contain {expected_partial_url} ')
 
-
+    def close(self):
+        self.driver.close()
